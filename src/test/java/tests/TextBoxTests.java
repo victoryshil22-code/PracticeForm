@@ -1,6 +1,7 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -21,11 +22,13 @@ public class TextBoxTests {
 
     @AfterAll
     static void tearDown() {
+        Selenide.closeWebDriver();
     }
+
 
     @Test
     void successfulFillFormTest() {
-        open("https://demoqa.com/text-box");
+        open("/text-box");
         $("[id=userName]").setValue("Alex Black");
         $("[id=userEmail]").setValue("alex@black.com");
         $("[id=currentAddress]").setValue("first address 1");
@@ -40,7 +43,7 @@ public class TextBoxTests {
 
     @Test
     void successfulShortFillFormTest(){
-        open("https://demoqa.com/text-box");
+        open("/text-box");
         $("[id=userName]").setValue("Alex Black");
         $("[id=submit]").click();
 
@@ -51,7 +54,7 @@ public class TextBoxTests {
 
     @Test
     void wrongEmailShortFillFormTest(){
-        open("https://demoqa.com/text-box");
+        open("/text-box");
         $("[id=userEmail]").setValue("1");
         $("[id=submit]").click();
 
