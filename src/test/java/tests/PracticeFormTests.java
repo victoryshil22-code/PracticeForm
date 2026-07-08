@@ -40,7 +40,7 @@ public class PracticeFormTests {
         $("[id=subjectsInput]").setValue("Maths").pressEnter();
         $("#hobbiesWrapper").$(byText("Sports")).click();
         $("#uploadPicture")
-                .uploadFile(new File("src/test/resources/smailiki.png"));
+                .uploadFromClasspath(("smailiki.png"));
         $("[id=currentAddress]").setValue("first address");
         $("[id=react-select-3-input]").setValue("NCR").pressEnter();
         $("[id=react-select-4-input]").setValue("Delhi").pressEnter();
